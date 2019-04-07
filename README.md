@@ -1,0 +1,2 @@
+# terrafrom-go-simple-RESTful-api
+Githubのコードの更新に合わせてAWSに自動デプロイするTerraformsサンプル
