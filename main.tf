@@ -3,14 +3,15 @@ provider "aws" {
 }
 
 module "ecs-pipeline" {
-  source  = "murawakimitsuhiro/ecs-pipeline/aws"
-  version = "0.1.1"
+  # source  = "murawakimitsuhiro/ecs-pipeline/aws"  # version = "0.1.1"
 
-  cluster_name        = "go-simple-RESTful-api"
+  source = "../../murawakimitsuhiro/terraform-aws-ecs-pipeline"
+
+  cluster_name        = "go-simple-restful-api"
   alb_port            = "80"
   container_port      = "8005"
-  app_repository_name = "go-simple-RESTful-api"
-  container_name      = "go-simple-RESTful-api"
+  app_repository_name = "go-simple-restful-api"
+  container_name      = "go-simple-resttful-api"
 
   git_repository = {
     owner  = "murawakimitsuhiro"
@@ -30,10 +31,11 @@ module "ecs-pipeline" {
 }
 
 module "rds-db" {
-  source  = "ispec-inc/mysql-utf8/rds"
-  version = "1.1.1"
+  #source  = "ispec-inc/mysql-utf8/rds"  #version = "1.1.1"
 
-  db_name  = "go_simple_RESTful"
+  source = "../../ispec-inc/terraform-rds-mysql-utf8"
+
+  db_name  = "simplerestful"
   username = "db_user"
   password = "roottest"
 
