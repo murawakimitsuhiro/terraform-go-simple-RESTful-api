@@ -27,7 +27,7 @@ module "ecs-pipeline" {
 
   environment_variables = {
     GO_SIMPLE_RESTFUL_DBPORT     = "${module.rds-db.this_db_port}"
-    GO_SIMPLE_RESTFUL_DBHOST     = "${module.rds-db.this_db_address}"
+    GO_SIMPLE_RESTFUL_DBHOST     = "${module.rds-db.this_db_instance_address}"
     GO_SIMPLE_RESTFUL_DBUSER     = "${module.rds-db.this_db_username}"
     GO_SIMPLE_RESTFUL_DBNAME     = "${module.rds-db.this_db_name}"
     GO_SIMPLE_RESTFUL_DBPASSWORD = "${module.rds-db.this_db_password}"
