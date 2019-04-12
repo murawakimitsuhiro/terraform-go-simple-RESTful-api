@@ -8,18 +8,18 @@ module "ecs-pipeline" {
   source = "../../murawakimitsuhiro/terraform-aws-ecs-pipeline"
 
   cluster_name        = "go-simple-restful-api"
-  alb_port            = "80"
+  alb_port            = "8005"
   container_port      = "8005"
   app_repository_name = "go-simple-restful-api"
   container_name      = "go-simple-resttful-api"
 
   git_repository = {
     owner  = "murawakimitsuhiro"
-    name   = "terraform-go-simple-RESTful-api"
+    name   = "go-simple-RESTful-api"
     branch = "master"
   }
 
-  helth_check_path = "/notes"
+  helth_check_path = "/ping"
 
   environment_variables = {
     GO_SIMPLE_RESTFUL_DBPORT     = "${module.rds-db.this_db_port}"
